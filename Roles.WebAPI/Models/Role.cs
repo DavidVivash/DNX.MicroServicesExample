@@ -1,10 +1,13 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 
 namespace Roles.WebAPI.Models
 {
     [BsonIgnoreExtraElements]
     public class Role
     {
-        public string role_name { get; set; }
+        [BsonElement("role_name")]
+        [JsonProperty("role_name")]
+        public string RoleName { get; set; }
     }
 }

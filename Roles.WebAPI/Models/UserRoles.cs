@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 
 namespace Roles.WebAPI.Models
 {
     [BsonIgnoreExtraElements]
     public class UserRoles
     {
-        public int user_id { get; set; }
+        [BsonElement("user_id")]
+        [JsonProperty("user_id")]
+        public int UserId { get; set; }
 
-        public IEnumerable<Role> roles { get; set; }
+        [BsonElement("roles")]
+        [JsonProperty("roles")]
+        public IEnumerable<Role> Roles { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace Roles.WebAPI.Controllers
         {
             var result = await client.GetDatabase("UserRoles")
                 .GetCollection<UserRoles>("userroles")
-                .ReplaceOneAsync(Builders<UserRoles>.Filter.Eq("user_id", roles.user_id), roles, new UpdateOptions { IsUpsert = true });
+                .ReplaceOneAsync(Builders<UserRoles>.Filter.Eq("user_id", roles.UserId), roles, new UpdateOptions { IsUpsert = true });
     
             return roles;
         }
